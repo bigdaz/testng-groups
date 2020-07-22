@@ -9,6 +9,7 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id "org.gradle.test-retry" version "1.1.6"
 }
 
 repositories {
@@ -35,6 +36,12 @@ test {
             showStandardStreams = true
             events "started", "skipped", "failed"
         }
-        includeGroups "other"
+        includeGroups "main"
+    }
+
+    retry {
+        maxRetries = 1
+        maxFailures = 20
+        failOnPassedAfterRetry = true
     }
 }

@@ -9,6 +9,6 @@ import static org.testng.Assert.*;
 public class LibraryTest {
     @Test(groups = {"main"}) public void someLibraryMethodReturnsTrue() {
         Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+        assertFalse(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
     }
 }
